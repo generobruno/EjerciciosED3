@@ -1,0 +1,12 @@
+"Task Aware Debugger for GDB" version 11.6.0 (202206271353)
+(c) 2016-2022 NXP Semiconductors, Inc.
+==================================
+20:18:21.561 INFO: [ZephyrRTOS] /home/bruno/Documents/Facultad/Electrónica Digital III/MCUxpresso_TPs/prueba/Debug/.config file could not be read
+20:18:21.563 INFO: [TadModel] DSF session ID 1 has started.
+20:18:24.567 INFO: [TadState] TAD state changed: DEBUG_STARTED -> DEBUG_INIT_0 (RESUMED, USER_REQUEST)
+20:18:24.615 INFO: [TadState] TAD state changed: DEBUG_INIT_0 -> DEBUG_INIT_1 (SUSPENDED, SIGNAL)
+20:18:25.249 INFO: [TadState] TAD state changed: DEBUG_INIT_1 -> DEBUG_SUSPENDED (RESUMED, USER_REQUEST)
+20:18:25.319 INFO: [TadState] TAD state changed: DEBUG_SUSPENDED -> DEBUG_SUSPENDED (SUSPENDED, BREAKPOINT)
+20:18:58.389 INFO: [TadState] TAD state changed: DEBUG_SUSPENDED -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+20:23:03.468 INFO: [TadState] TAD state changed: DEBUG_RESUMED -> READY (SUSPENDED, SIGNAL)
+20:23:05.626 INFO: [TadModel] DSF session ID 1 has ended.

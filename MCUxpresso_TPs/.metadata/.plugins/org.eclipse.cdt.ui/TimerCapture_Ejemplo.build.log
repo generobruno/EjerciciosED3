@@ -1,0 +1,24 @@
+14:30:16 **** Build of configuration Debug for project TimerCapture_Ejemplo ****
+make -r -j4 all 
+Building file: ../src/TimerCapture_Ejemplo.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/MCUxpresso_TPs/CMSISv2p00_LPC17xx/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/TimerCapture_Ejemplo.d" -MT"src/TimerCapture_Ejemplo.o" -MT"src/TimerCapture_Ejemplo.d" -o "src/TimerCapture_Ejemplo.o" "../src/TimerCapture_Ejemplo.c"
+Finished building: ../src/TimerCapture_Ejemplo.c
+ 
+Building target: TimerCapture_Ejemplo.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"/home/bruno/Documents/Facultad/Electrónica Digital III/MCUxpresso_TPs/CMSISv2p00_LPC17xx/Debug" -Xlinker -Map="TimerCapture_Ejemplo.map" -Xlinker --cref -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "TimerCapture_Ejemplo_Debug.ld" -o "TimerCapture_Ejemplo.axf"  ./src/TimerCapture_Ejemplo.o ./src/cr_startup_lpc175x_6x.o ./src/crp.o   -lCMSISv2p00_LPC17xx
+Memory region         Used Size  Region Size  %age Used
+       MFlash512:        1188 B       512 KB      0.23%
+        RamLoc32:          0 GB        32 KB      0.00%
+        RamAHB32:          0 GB        32 KB      0.00%
+Finished building target: TimerCapture_Ejemplo.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "TimerCapture_Ejemplo.axf"; # arm-none-eabi-objcopy -v -O binary "TimerCapture_Ejemplo.axf" "TimerCapture_Ejemplo.bin" ; # checksum -p LPC1769 -d "TimerCapture_Ejemplo.bin";
+   text	   data	    bss	    dec	    hex	filename
+   1188	      0	      0	   1188	    4a4	TimerCapture_Ejemplo.axf
+ 
+
+14:30:17 Build Finished. 0 errors, 0 warnings. (took 933ms)
+

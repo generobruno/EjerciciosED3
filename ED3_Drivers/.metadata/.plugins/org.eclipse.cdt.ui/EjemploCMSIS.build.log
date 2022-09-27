@@ -1,0 +1,16 @@
+20:21:42 **** Build of configuration Debug for project EjemploCMSIS ****
+make -r -j4 all 
+Building file: ../src/EjemploCMSIS.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/inc" -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Drivers/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/EjemploCMSIS.d" -MT"src/EjemploCMSIS.o" -MT"src/EjemploCMSIS.d" -o "src/EjemploCMSIS.o" "../src/EjemploCMSIS.c"
+In file included from ../src/EjemploCMSIS.c:9:
+/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_pinsel.h:31:10: fatal error: lpc17xx.h: No such file or directory
+   31 | #include "lpc17xx.h"
+      |          ^~~~~~~~~~~
+compilation terminated.
+make[1]: *** [src/subdir.mk:26: src/EjemploCMSIS.o] Error 1
+make: *** [makefile:37: all] Error 2
+"make -r -j4 all" terminated with exit code 2. Build might be incomplete.
+
+20:21:43 Build Failed. 3 errors, 0 warnings. (took 175ms)
+

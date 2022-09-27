@@ -1,0 +1,7 @@
+/home/bruno/Documents/Facultad/Electrónica Digital III/MCUxpresso_TPs/CMSISv2p00_LPC17xx/inc/core_cm3.h:928:22:NVIC_EnableIRQ	16	static
+../src/Ext_Int1_Genero.c:23:5:main	8	static
+../src/Ext_Int1_Genero.c:36:6:configGPIO	4	static
+../src/Ext_Int1_Genero.c:41:6:configIntExt	8	static
+../src/Ext_Int1_Genero.c:57:6:EINT1_IRQHandler	8	static
+../src/Ext_Int1_Genero.c:63:6:EINT2_IRQHandler	8	static
+../src/Ext_Int1_Genero.c:68:6:Config_Systick	16	static

@@ -1,0 +1,24 @@
+18:50:14 **** Incremental Build of configuration Debug for project EjerciciosClase ****
+make -r -j4 all 
+Building file: ../src/EjerciciosClase.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/MCUxpresso_TPs/CMSISv2p00_LPC17xx/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/EjerciciosClase.d" -MT"src/EjerciciosClase.o" -MT"src/EjerciciosClase.d" -o "src/EjerciciosClase.o" "../src/EjerciciosClase.c"
+Finished building: ../src/EjerciciosClase.c
+ 
+Building target: EjerciciosClase.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"/home/bruno/Documents/Facultad/Electrónica Digital III/MCUxpresso_TPs/CMSISv2p00_LPC17xx/Debug" -Xlinker -Map="EjerciciosClase.map" -Xlinker --cref -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "EjerciciosClase_Debug.ld" -o "EjerciciosClase.axf"  ./src/EjerciciosClase.o ./src/cr_startup_lpc175x_6x.o ./src/crp.o   -lCMSISv2p00_LPC17xx
+Memory region         Used Size  Region Size  %age Used
+       MFlash512:        1336 B       512 KB      0.25%
+        RamLoc32:           8 B        32 KB      0.02%
+        RamAHB32:          0 GB        32 KB      0.00%
+Finished building target: EjerciciosClase.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "EjerciciosClase.axf"; # arm-none-eabi-objcopy -v -O binary "EjerciciosClase.axf" "EjerciciosClase.bin" ; # checksum -p LPC1769 -d "EjerciciosClase.bin";
+   text	   data	    bss	    dec	    hex	filename
+   1336	      0	      8	   1344	    540	EjerciciosClase.axf
+ 
+
+18:50:15 Build Finished. 0 errors, 0 warnings. (took 726ms)
+

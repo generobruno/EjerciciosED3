@@ -1,0 +1,11 @@
+17:52:51 **** Incremental Build of configuration Debug for project eje2Genero ****
+make -r -j4 all 
+make[1]: Nothing to be done for 'main-build'.
+Performing post-build steps
+arm-none-eabi-size "eje2Genero.axf"; # arm-none-eabi-objcopy -v -O binary "eje2Genero.axf" "eje2Genero.bin" ; # checksum -p LPC1769 -d "eje2Genero.bin";
+   text	   data	    bss	    dec	    hex	filename
+   1188	      0	      0	   1188	    4a4	eje2Genero.axf
+ 
+
+17:52:51 Build Finished. 0 errors, 0 warnings. (took 193ms)
+

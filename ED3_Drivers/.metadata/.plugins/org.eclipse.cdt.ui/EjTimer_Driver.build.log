@@ -1,0 +1,26 @@
+19:01:25 **** Incremental Build of configuration Debug for project EjTimer_Driver ****
+make -r -j4 all 
+Building file: ../src/EjTimer_Driver.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx" -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/inc" -include"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_timer.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/EjTimer_Driver.d" -MT"src/EjTimer_Driver.o" -MT"src/EjTimer_Driver.d" -o "src/EjTimer_Driver.o" "../src/EjTimer_Driver.c"
+../src/EjTimer_Driver.c:13:10: fatal error: lpc17xx_timer.h: No such file or directory
+   13 | #include "lpc17xx_timer.h"
+      |          ^~~~~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [src/subdir.mk:26: src/EjTimer_Driver.o] Error 1
+make[1]: *** Waiting for unfinished jobs....
+Building file: ../src/cr_startup_lpc175x_6x.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx" -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/inc" -include"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_timer.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/cr_startup_lpc175x_6x.d" -MT"src/cr_startup_lpc175x_6x.o" -MT"src/cr_startup_lpc175x_6x.d" -o "src/cr_startup_lpc175x_6x.o" "../src/cr_startup_lpc175x_6x.c"
+Building file: ../src/crp.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx" -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/inc" -include"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_timer.h" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/crp.d" -MT"src/crp.o" -MT"src/crp.d" -o "src/crp.o" "../src/crp.c"
+Finished building: ../src/crp.c
+ 
+Finished building: ../src/cr_startup_lpc175x_6x.c
+make: *** [makefile:37: all] Error 2
+ 
+"make -r -j4 all" terminated with exit code 2. Build might be incomplete.
+
+19:01:25 Build Failed. 4 errors, 0 warnings. (took 288ms)
+

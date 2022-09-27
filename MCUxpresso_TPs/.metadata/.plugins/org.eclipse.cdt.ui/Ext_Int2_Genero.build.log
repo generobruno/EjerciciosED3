@@ -1,0 +1,34 @@
+09:56:08 **** Build of configuration Debug for project Ext_Int2_Genero ****
+make -r -j4 all 
+Building file: ../src/Ext_Int2_Genero.c
+Building file: ../src/cr_startup_lpc175x_6x.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/MCUxpresso_TPs/CMSISv2p00_LPC17xx/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/Ext_Int2_Genero.d" -MT"src/Ext_Int2_Genero.o" -MT"src/Ext_Int2_Genero.d" -o "src/Ext_Int2_Genero.o" "../src/Ext_Int2_Genero.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/MCUxpresso_TPs/CMSISv2p00_LPC17xx/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/cr_startup_lpc175x_6x.d" -MT"src/cr_startup_lpc175x_6x.o" -MT"src/cr_startup_lpc175x_6x.d" -o "src/cr_startup_lpc175x_6x.o" "../src/cr_startup_lpc175x_6x.c"
+Building file: ../src/crp.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/MCUxpresso_TPs/CMSISv2p00_LPC17xx/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/crp.d" -MT"src/crp.o" -MT"src/crp.d" -o "src/crp.o" "../src/crp.c"
+Finished building: ../src/crp.c
+ 
+Finished building: ../src/cr_startup_lpc175x_6x.c
+ 
+Finished building: ../src/Ext_Int2_Genero.c
+ 
+Building target: Ext_Int2_Genero.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"/home/bruno/Documents/Facultad/Electrónica Digital III/MCUxpresso_TPs/CMSISv2p00_LPC17xx/Debug" -Xlinker -Map="Ext_Int2_Genero.map" -Xlinker --cref -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Ext_Int2_Genero_Debug.ld" -o "Ext_Int2_Genero.axf"  ./src/Ext_Int2_Genero.o ./src/cr_startup_lpc175x_6x.o ./src/crp.o   -lCMSISv2p00_LPC17xx
+Memory region         Used Size  Region Size  %age Used
+       MFlash512:        1288 B       512 KB      0.25%
+        RamLoc32:           4 B        32 KB      0.01%
+        RamAHB32:          0 GB        32 KB      0.00%
+Finished building target: Ext_Int2_Genero.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "Ext_Int2_Genero.axf"; # arm-none-eabi-objcopy -v -O binary "Ext_Int2_Genero.axf" "Ext_Int2_Genero.bin" ; # checksum -p LPC1769 -d "Ext_Int2_Genero.bin";
+   text	   data	    bss	    dec	    hex	filename
+   1288	      0	      4	   1292	    50c	Ext_Int2_Genero.axf
+ 
+
+09:56:08 Build Finished. 0 errors, 0 warnings. (took 425ms)
+

@@ -1,0 +1,15 @@
+17:44:33 **** Incremental Build of configuration Debug for project EjemploDriver ****
+make -r -j4 all 
+Building file: ../src/EjemploDriver.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/EjemploDriver.d" -MT"src/EjemploDriver.o" -MT"src/EjemploDriver.d" -o "src/EjemploDriver.o" "../src/EjemploDriver.c"
+../src/EjemploDriver.c:9:10: fatal error: lpc17xx_pinsel.h: No such file or directory
+    9 | #include "lpc17xx_pinsel.h"
+      |          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [src/subdir.mk:26: src/EjemploDriver.o] Error 1
+make: *** [makefile:37: all] Error 2
+"make -r -j4 all" terminated with exit code 2. Build might be incomplete.
+
+17:44:33 Build Failed. 3 errors, 0 warnings. (took 231ms)
+

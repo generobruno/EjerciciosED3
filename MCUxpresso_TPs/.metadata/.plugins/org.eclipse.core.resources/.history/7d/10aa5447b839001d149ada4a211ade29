@@ -1,0 +1,54 @@
+/*
+===============================================================================
+ Name        : EjTimerMatch5_Genero.c
+ Author      : Bruno A. Genero
+ Description : Utilizando los 4 registros match del Timer 0 y las salidas
+ P0.0, P0.1, P0.2 y P0.3, realizar un programa en C que permita obtener
+ las formas de ondas adjuntas, donde los pulsos en alto tienen una
+ duración de 5 mseg. Un pulsador conectado a la entrada EINT3, permitirá
+ elegir entre las dos secuencias mediante una rutina de servicio a la
+ interrupción. La prioridad de la interrupción del Timer tiene que ser
+ mayor que la del pulsador. Estas formas de ondas son muy útiles para
+ controlar un motor paso a paso. Adjuntar el código en C.
+===============================================================================
+*/
+
+#include "LPC17xx.h"
+
+void confTimer(void);
+void confGPIO(void);
+void confInt(void);
+void parMenor(void);
+void parMax(void);
+
+int main(void) {
+
+	confGPIO();
+	confTimer();
+	confInt();
+
+    while(1) {
+    }
+    return 0 ;
+}
+
+void confGPIO(void) {
+	// Configuramos los pines P0.0 a P0.3 como salida
+	LPC_GPIO0->FIODIR0 |= (15<<0);
+	return;
+}
+
+void confTimer(void) {
+	// El timer 0 ya esta siendo alimentado por reset
+	// pclk = cclk
+	LPC_SC->PCLKSEL0 |= (1<<2);
+	// Cargamos los valores de match (par menor predet, pckl = 100MHz)
+	LPC_TIM0->MR0 = 0x7A11F;	// 5 ms
+	LPC_TIM0->MR1 = 0xF423F;	// 10 ms
+	LPC_TIM0->MR2 = 0x16E35F;	// 15 ms
+	LPC_TIM0->MR3 = 0x1E847F;	// 20 ms
+	// Hacemos que se reinicie con MR3
+	LPC_TIM0->MCR |= (1<<10);
+	LPC_TIM0->TCR = 3;
+	LPC_TIM0->TCR &= ~(1<<1);
+}

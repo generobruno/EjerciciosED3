@@ -1,0 +1,22 @@
+/*
+===============================================================================
+ Name        : EjemploCMSIS.c
+ Author      : Bruno A. Genero
+===============================================================================
+*/
+
+#include "LPC17xx.h"
+#include "lpc17xx_pinsel.h"
+
+
+void confGPIO(void) {
+	PINSEL_CFG_Type pin_configuration;
+
+	pin_configuration.Portnum = PINSEL_PORT_0; 			// PINSEL_PORT_0 = 0 (Puerto 0)
+	pin_configuration.Pinnum = PINSEL_PIN_22;			// PINSEL_PIN_22 = 22 (Pin 22)
+	pin_configuration.Pinmode = PINSEL_PINMODE_PULLUP;	// Habilitamos pull-up
+
+	PINSEL_ConfigPin(&pin_configuration);
+}
+
+

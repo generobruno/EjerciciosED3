@@ -1,0 +1,26 @@
+08:04:42 **** Build of configuration Debug for project Ejemplo_Adc_Timer ****
+make -r -j4 all 
+Building file: ../src/Ejemplo_Adc_Timer.c
+Building file: ../src/cr_startup_lpc175x_6x.c
+Building file: ../src/crp.c
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/Ejemplo_Adc_Timer.d" -MT"src/Ejemplo_Adc_Timer.o" -MT"src/Ejemplo_Adc_Timer.d" -o "src/Ejemplo_Adc_Timer.o" "../src/Ejemplo_Adc_Timer.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/cr_startup_lpc175x_6x.d" -MT"src/cr_startup_lpc175x_6x.o" -MT"src/cr_startup_lpc175x_6x.d" -o "src/cr_startup_lpc175x_6x.o" "../src/cr_startup_lpc175x_6x.c"
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/crp.d" -MT"src/crp.o" -MT"src/crp.d" -o "src/crp.o" "../src/crp.c"
+../src/Ejemplo_Adc_Timer.c:14:10: fatal error: lpc17xx_timer.h: No such file or directory
+   14 | #include "lpc17xx_timer.h"
+      |          ^~~~~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [src/subdir.mk:26: src/Ejemplo_Adc_Timer.o] Error 1
+make[1]: *** Waiting for unfinished jobs....
+Finished building: ../src/crp.c
+Finished building: ../src/cr_startup_lpc175x_6x.c
+ 
+ 
+make: *** [makefile:37: all] Error 2
+"make -r -j4 all" terminated with exit code 2. Build might be incomplete.
+
+08:04:43 Build Failed. 4 errors, 0 warnings. (took 334ms)
+

@@ -1,0 +1,24 @@
+20:08:27 **** Incremental Build of configuration Debug for project TimerMatch_Ejemplo ****
+make -r -j4 all 
+Building file: ../src/TimerMatch_Ejemplo.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/MCUxpresso_TPs/CMSISv2p00_LPC17xx/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/TimerMatch_Ejemplo.d" -MT"src/TimerMatch_Ejemplo.o" -MT"src/TimerMatch_Ejemplo.d" -o "src/TimerMatch_Ejemplo.o" "../src/TimerMatch_Ejemplo.c"
+Finished building: ../src/TimerMatch_Ejemplo.c
+ 
+Building target: TimerMatch_Ejemplo.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"/home/bruno/Documents/Facultad/Electrónica Digital III/MCUxpresso_TPs/CMSISv2p00_LPC17xx/Debug" -Xlinker -Map="TimerMatch_Ejemplo.map" -Xlinker --cref -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "TimerMatch_Ejemplo_Debug.ld" -o "TimerMatch_Ejemplo.axf"  ./src/TimerMatch_Ejemplo.o ./src/cr_startup_lpc175x_6x.o ./src/crp.o   -lCMSISv2p00_LPC17xx
+Memory region         Used Size  Region Size  %age Used
+       MFlash512:        1148 B       512 KB      0.22%
+        RamLoc32:          0 GB        32 KB      0.00%
+        RamAHB32:          0 GB        32 KB      0.00%
+Finished building target: TimerMatch_Ejemplo.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "TimerMatch_Ejemplo.axf"; # arm-none-eabi-objcopy -v -O binary "TimerMatch_Ejemplo.axf" "TimerMatch_Ejemplo.bin" ; # checksum -p LPC1769 -d "TimerMatch_Ejemplo.bin";
+   text	   data	    bss	    dec	    hex	filename
+   1148	      0	      0	   1148	    47c	TimerMatch_Ejemplo.axf
+ 
+
+20:08:27 Build Finished. 0 errors, 0 warnings. (took 213ms)
+
