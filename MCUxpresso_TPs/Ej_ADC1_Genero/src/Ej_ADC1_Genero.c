@@ -75,7 +75,6 @@ void ADC_IRQHandler(void) {
  *
  * 			f_T / f_m = 128 => f_m = f_T / 128 = 95.3 [KHz]
  *
-* 						REVISAR
  */
 
 
