@@ -52,6 +52,8 @@ void configDAC(void) {
 	LPC_PINCON->PINSEL1 |= (2<<20);
 	// Configuramos el pckl = cclk
 	LPC_SC->PCLKSEL0 |= (1<<22);
+	// PinMode para P0.26
+	LPC_PINCON->PINMODE1 |= (2<<20);
 }
 
 void configTimer(void) {
