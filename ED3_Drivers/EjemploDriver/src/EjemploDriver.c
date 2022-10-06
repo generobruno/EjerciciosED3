@@ -4,9 +4,9 @@
  Author      : Bruno A. Genero
 ===============================================================================
 */
- //../../CMSISv2p00_LPC17xx/Drivers/inc/
-#include "../../CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_pinsel.h"
-#include "../../CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_gpio.h"
+
+#include "lpc17xx_pinsel.h"
+#include "lpc17xx_gpio.h"
 
 #define PORT_ZERO 	(uint8_t) 0
 #define PIN_22		(uint32_t) (1<<22)

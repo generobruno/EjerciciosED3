@@ -1,24 +1,11 @@
-14:56:18 **** Build of configuration Debug for project Ejemplo_Adc_Timer ****
+15:05:54 **** Incremental Build of configuration Debug for project Ejemplo_Adc_Timer ****
 make -r -j4 all 
-Building file: ../src/Ejemplo_Adc_Timer.c
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/Ejemplo_Adc_Timer.d" -MT"src/Ejemplo_Adc_Timer.o" -MT"src/Ejemplo_Adc_Timer.d" -o "src/Ejemplo_Adc_Timer.o" "../src/Ejemplo_Adc_Timer.c"
-Finished building: ../src/Ejemplo_Adc_Timer.c
- 
-Building target: Ejemplo_Adc_Timer.axf
-Invoking: MCU Linker
-arm-none-eabi-gcc -nostdlib -L"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug" -Xlinker -Map="Ejemplo_Adc_Timer.map" -Xlinker --cref -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Ejemplo_Adc_Timer_Debug.ld" -o "Ejemplo_Adc_Timer.axf"  ./src/Ejemplo_Adc_Timer.o ./src/cr_startup_lpc175x_6x.o ./src/crp.o   -lCMSISv2p00_LPC17xx
-Memory region         Used Size  Region Size  %age Used
-       MFlash512:        2760 B       512 KB      0.53%
-        RamLoc32:           4 B        32 KB      0.01%
-        RamAHB32:          0 GB        32 KB      0.00%
-Finished building target: Ejemplo_Adc_Timer.axf
- 
+make[1]: Nothing to be done for 'main-build'.
 Performing post-build steps
 arm-none-eabi-size "Ejemplo_Adc_Timer.axf"; # arm-none-eabi-objcopy -v -O binary "Ejemplo_Adc_Timer.axf" "Ejemplo_Adc_Timer.bin" ; # checksum -p LPC1769 -d "Ejemplo_Adc_Timer.bin";
    text	   data	    bss	    dec	    hex	filename
    2756	      4	      0	   2760	    ac8	Ejemplo_Adc_Timer.axf
  
 
-14:56:18 Build Finished. 0 errors, 0 warnings. (took 269ms)
+15:05:54 Build Finished. 0 errors, 0 warnings. (took 175ms)
 

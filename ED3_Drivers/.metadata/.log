@@ -2646,3 +2646,21 @@ Command-line arguments:  -data /home/bruno/Documents/Facultad/Electrónica Digit
 
 !ENTRY org.eclipse.cdt.core 1 0 2022-10-06 14:55:37.294
 !MESSAGE Indexed 'EjemploDriver' (3 sources, 13 headers) in 0.188 sec: 1,531 declarations; 2,132 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-10-06 15:00:47.032
+!MESSAGE Indexed 'EjTimer_Driver' (3 sources, 14 headers) in 0.201 sec: 1,640 declarations; 2,258 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-10-06 15:01:41.876
+!MESSAGE Indexed 'EjTimer_Driver' (3 sources, 14 headers) in 0.128 sec: 1,640 declarations; 2,258 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-10-06 15:02:02.844
+!MESSAGE Indexed 'EjTimer_Driver' (3 sources, 14 headers) in 0.173 sec: 1,640 declarations; 2,258 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-10-06 15:03:10.617
+!MESSAGE Indexed 'EjemploDriver' (3 sources, 13 headers) in 0.108 sec: 1,531 declarations; 2,132 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-10-06 15:04:07.108
+!MESSAGE Indexed 'EjemploADC_Driver' (3 sources, 13 headers) in 0.168 sec: 1,504 declarations; 2,107 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-10-06 15:04:50.458
+!MESSAGE Indexed 'Ejemplo_Adc_Timer' (3 sources, 14 headers) in 0.131 sec: 1,638 declarations; 2,258 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)

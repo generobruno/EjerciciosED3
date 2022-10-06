@@ -5,8 +5,8 @@
 ===============================================================================
 */
 
-#include "../../CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_adc.h"
-#include "../../CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_pinsel.h"
+#include "lpc17xx_adc.h"
+#include "lpc17xx_pinsel.h"
 
 #define _ADC_INT		ADC_ADINTEN2
 #define _ADC_CHANNEL	ADC_CHANNEL_2

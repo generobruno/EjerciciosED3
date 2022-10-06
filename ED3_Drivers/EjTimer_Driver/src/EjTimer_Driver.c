@@ -10,9 +10,9 @@
 /*
  * Header files to project. Include Library
  */
-#include "../../CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_timer.h"
-#include "../../CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_gpio.h"
-#include "../../CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_pinsel.h"
+#include "lpc17xx_timer.h"
+#include "lpc17xx_gpio.h"
+#include "lpc17xx_pinsel.h"
 
 /*
  * Definitions and declarations

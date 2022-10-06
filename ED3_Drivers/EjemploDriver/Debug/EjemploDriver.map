@@ -506,13 +506,13 @@ LOAD linker stubs
  .debug_macro   0x0000000000002bbb       0xdd /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
  .debug_macro   0x0000000000002c98       0x8d /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
 
-.debug_line     0x0000000000000000     0x1507
- .debug_line    0x0000000000000000      0x2b9 ./src/EjemploDriver.o
- .debug_line    0x00000000000002b9      0x160 ./src/cr_startup_lpc175x_6x.o
- .debug_line    0x0000000000000419       0xb5 ./src/crp.o
- .debug_line    0x00000000000004ce      0x43c /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
- .debug_line    0x000000000000090a      0x86d /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
- .debug_line    0x0000000000001177      0x390 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
+.debug_line     0x0000000000000000     0x153e
+ .debug_line    0x0000000000000000      0x2f0 ./src/EjemploDriver.o
+ .debug_line    0x00000000000002f0      0x160 ./src/cr_startup_lpc175x_6x.o
+ .debug_line    0x0000000000000450       0xb5 ./src/crp.o
+ .debug_line    0x0000000000000505      0x43c /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_line    0x0000000000000941      0x86d /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .debug_line    0x00000000000011ae      0x390 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
 
 .debug_str      0x0000000000000000     0x9d60
  .debug_str     0x0000000000000000     0x8d4c ./src/EjemploDriver.o

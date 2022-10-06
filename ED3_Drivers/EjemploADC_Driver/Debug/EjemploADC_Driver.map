@@ -583,15 +583,15 @@ LOAD linker stubs
  .debug_macro   0x0000000000003503       0x8d /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
  .debug_macro   0x0000000000003590      0x13f /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
 
-.debug_line     0x0000000000000000     0x1ae0
- .debug_line    0x0000000000000000      0x3a8 ./src/EjemploADC_Driver.o
- .debug_line    0x00000000000003a8      0x160 ./src/cr_startup_lpc175x_6x.o
- .debug_line    0x0000000000000508       0xb5 ./src/crp.o
- .debug_line    0x00000000000005bd      0x43c /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
- .debug_line    0x00000000000009f9      0x6a9 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
- .debug_line    0x00000000000010a2      0x47a /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
- .debug_line    0x000000000000151c      0x234 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
- .debug_line    0x0000000000001750      0x390 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
+.debug_line     0x0000000000000000     0x1b17
+ .debug_line    0x0000000000000000      0x3df ./src/EjemploADC_Driver.o
+ .debug_line    0x00000000000003df      0x160 ./src/cr_startup_lpc175x_6x.o
+ .debug_line    0x000000000000053f       0xb5 ./src/crp.o
+ .debug_line    0x00000000000005f4      0x43c /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_line    0x0000000000000a30      0x6a9 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+ .debug_line    0x00000000000010d9      0x47a /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .debug_line    0x0000000000001553      0x234 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .debug_line    0x0000000000001787      0x390 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
 
 .debug_str      0x0000000000000000     0xb764
  .debug_str     0x0000000000000000     0x973a ./src/EjemploADC_Driver.o
