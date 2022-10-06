@@ -6222,3 +6222,12 @@ Caused by: org.eclipse.equinox.p2.core.ProvisionException: No repository found a
 	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.load(CompositeArtifactRepository.java:496)
 	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.addChild(CompositeArtifactRepository.java:177)
 	... 9 more
+!SESSION 2022-10-06 18:17:50.884 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.11
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -data /home/bruno/Documents/Facultad/Electrónica Digital III/MCUxpresso_TPs -os linux -ws gtk -arch x86_64
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2022-10-06 18:17:58.987
+!MESSAGE Recreating part support. No part support available.

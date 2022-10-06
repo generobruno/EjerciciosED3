@@ -64,11 +64,13 @@ void ADC_IRQHandler(void)
 {
 	static uint16_t ADC0Value = 0;
 	float volt = 0;
+
 	ADC0Value = ((LPC_ADC->ADDR0)>>4) & 0xFFF; //Variable auxiliar para observar el valor del registro de captura
 	if(ADC0Value>2055)
 		LPC_GPIO0->FIOSET |= (1<<9);
 	else
 		LPC_GPIO0->FIOCLR |= (1<<9);
+
 	volt = (ADC0Value/4096)*3.3;
 	return;
 }

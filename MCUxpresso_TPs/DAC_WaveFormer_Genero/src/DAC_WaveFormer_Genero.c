@@ -14,7 +14,7 @@ void configTimer(void);
 
 int main(void) {
 	// Inicializamos variables
-	uint8_t amplitudMax = 0x26C;	// Amplitud Max = 2 [V] -> VALUE = 620 = 0x26C
+	uint16_t amplitudMax = 0x26C;	// Amplitud Max = 2 [V] -> VALUE = 620 = 0x26C
 	uint8_t delta = 0x3E;			// Delta = 0.2 [V] -> VALUE = 62 = 0x3E
 	uint8_t grad = 1;
 
@@ -22,7 +22,8 @@ int main(void) {
 	configTimer();
 
 	// Valor inicial de la onda
-	((LPC_DAC->DACR<<6)&(0xFF)) = 1;
+	uint16_t valor = ((LPC_DAC->DACR<<6)&(0xFFC));
+	valor = 1;
 
     while(1) {
     	// Vemos si el timer interrumpio
@@ -36,9 +37,9 @@ int main(void) {
 
     		// Chequeamos grad para ver que hacer
     		if(grad){
-    			((LPC_DAC->DACR<<6)&(0xFF)) += delta;
+    			valor += delta;
     		}else {
-    			((LPC_DAC->DACR<<6))&(0xFF) -= delta;
+    			valor -= delta;
     		}
     	}
     	// No es necesario un retardo en esta frecuencia.
