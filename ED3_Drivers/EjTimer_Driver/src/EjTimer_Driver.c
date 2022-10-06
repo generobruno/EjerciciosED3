@@ -10,9 +10,9 @@
 /*
  * Header files to project. Include Library
  */
-#include "lpc17xx_timer.h"
-#include "lpc17xx_gpio.h"
-#include "lpc17xx_pinsel.h"
+#include "../../CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_timer.h"
+#include "../../CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_gpio.h"
+#include "../../CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_pinsel.h"
 
 /*
  * Definitions and declarations
@@ -58,7 +58,7 @@ void config_GPIO(void) {
 	pin_config.Pinnum		=		PINSEL_PIN_22;
 	pin_config.Pinmode		=		PINSEL_PINMODE_PULLUP;
 	pin_config.Funcnum		=		PINSEL_FUNC_0;
-	pin_config.OpenDrain	=		PINSEL_PINMODE_NOMRAL;
+	pin_config.OpenDrain	=		PINSEL_PINMODE_NORMAL;
 
 	PINSEL_ConfigPin(&pin_config);
 
@@ -86,7 +86,7 @@ void config_timer(void) {
 
 	TIM_Cmd(LPC_TIM0,ENABLE);							// Habilitamos el timer
 
-	NVIC_EnableIRQ(TIMER0,IRQn);						// Habilitamos las interrupcions
+	NVIC_EnableIRQ(TIMER0_IRQn);						// Habilitamos las interrupcions
 
 	return;
 }

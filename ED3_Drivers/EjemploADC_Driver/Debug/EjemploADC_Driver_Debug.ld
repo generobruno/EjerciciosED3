@@ -6,7 +6,7 @@
  * Generated linker script file for LPC1769
  * Created from linkscript.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.30
- * MCUXpresso IDE v11.6.0 [Build 8187] [2022-07-13] on Sep 23, 2022, 10:47:24 AM
+ * MCUXpresso IDE v11.6.0 [Build 8187] [2022-07-13] on Oct 6, 2022, 2:41:09 PM
  */
 
 INCLUDE "EjemploADC_Driver_Debug_library.ld"

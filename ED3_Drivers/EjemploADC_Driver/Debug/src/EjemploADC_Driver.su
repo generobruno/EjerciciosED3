@@ -1,0 +1,7 @@
+/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/inc/core_cm3.h:928:22:NVIC_EnableIRQ	16	static
+/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/inc/core_cm3.h:941:22:NVIC_DisableIRQ	16	static
+/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/inc/core_cm3.h:1012:22:NVIC_SetPriority	16	static
+../src/EjemploADC_Driver.c:20:5:main	16	static
+../src/EjemploADC_Driver.c:38:6:configPin	16	static
+../src/EjemploADC_Driver.c:52:6:configADC	8	static
+../src/EjemploADC_Driver.c:62:6:ADC_IRQHanlder	8	static

@@ -4,14 +4,24 @@
  Author      : Bruno A. Genero
 ===============================================================================
 */
-
-#include "LPC17xx.h"
-#include "lpc17xx_pinsel.h"
-#include "lpc17xx_gpio.h"
+ //../../CMSISv2p00_LPC17xx/Drivers/inc/
+#include "../../CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_pinsel.h"
+#include "../../CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_gpio.h"
 
 #define PORT_ZERO 	(uint8_t) 0
 #define PIN_22		(uint32_t) (1<<22)
 #define OUTPUT		(uint8_t) 1
+
+void confGPIO(void);
+
+int main(void) {
+
+	confGPIO();
+
+	while(1){}
+
+	return 0;
+}
 
 void confGPIO(void) {
 	PINSEL_CFG_Type pin_configuration;

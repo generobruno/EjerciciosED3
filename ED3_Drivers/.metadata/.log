@@ -2625,3 +2625,24 @@ Caused by: org.eclipse.equinox.p2.core.ProvisionException: No repository found a
 	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.load(CompositeArtifactRepository.java:496)
 	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.addChild(CompositeArtifactRepository.java:177)
 	... 9 more
+!SESSION 2022-10-06 14:38:30.834 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.11
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -data /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers -os linux -ws gtk -arch x86_64
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2022-10-06 14:38:39.618
+!MESSAGE Recreating part support. No part support available.
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-10-06 14:44:14.757
+!MESSAGE Indexed 'EjemploDriver' (3 sources, 13 headers) in 0.326 sec: 1,527 declarations; 2,131 references; 1 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-10-06 14:45:37.193
+!MESSAGE Indexed 'EjemploDriver' (3 sources, 13 headers) in 0.217 sec: 1,527 declarations; 2,131 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-10-06 14:50:43.559
+!MESSAGE Indexed 'EjemploDriver' (3 sources, 13 headers) in 0.151 sec: 1,531 declarations; 2,132 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-10-06 14:55:37.294
+!MESSAGE Indexed 'EjemploDriver' (3 sources, 13 headers) in 0.188 sec: 1,531 declarations; 2,132 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)

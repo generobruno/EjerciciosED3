@@ -11,9 +11,9 @@
  * Header files to project. Include library
  */
 
-#include "lpc17xx_timer.h"
-#include "lpc17xx_gpio.h"
-#include "lpc17xx_pinsel.h"
+#include "../../CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_timer.h"
+#include "../../CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_gpio.h"
+#include "../../CMSISv2p00_LPC17xx/Drivers/inc/lpc17xx_pinsel.h"
 
 
 // TODO: insert other definitions and declarations here
