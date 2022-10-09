@@ -1,4 +1,4 @@
-15:48:50 **** Incremental Build of configuration Debug for project CMSISv2p00_LPC17xx ****
+18:02:39 **** Build of configuration Debug for project CMSISv2p00_LPC17xx ****
 make -r -j4 all 
 make[1]: Nothing to be done for 'main-build'.
 Performing post-build steps
@@ -32,24 +32,34 @@ arm-none-eabi-size libCMSISv2p00_LPC17xx.a ; # arm-none-eabi-objdump -h -S libCM
    2912	      0	      0	   2912	    b60	lpc17xx_uart.o (ex libCMSISv2p00_LPC17xx.a)
     314	      0	      0	    314	    13a	lpc17xx_wdt.o (ex libCMSISv2p00_LPC17xx.a)
  
-15:48:50 **** Incremental Build of configuration Debug for project EjTimerMatch4_D_Genero ****
+18:02:39 **** Build of configuration Debug for project Ejemplo_M2M_DMA ****
 make -r -j4 all 
-Building file: ../src/EjTimerMatch4_D_Genero.c
+Building file: ../src/Ejemplo_M2M_DMA.c
+Building file: ../src/cr_startup_lpc175x_6x.c
+Building file: ../src/crp.c
 Invoking: MCU C Compiler
-arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/inc" -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Drivers/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/EjTimerMatch4_D_Genero.d" -MT"src/EjTimerMatch4_D_Genero.o" -MT"src/EjTimerMatch4_D_Genero.d" -o "src/EjTimerMatch4_D_Genero.o" "../src/EjTimerMatch4_D_Genero.c"
-Finished building: ../src/EjTimerMatch4_D_Genero.c
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Drivers/inc" -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/cr_startup_lpc175x_6x.d" -MT"src/cr_startup_lpc175x_6x.o" -MT"src/cr_startup_lpc175x_6x.d" -o "src/cr_startup_lpc175x_6x.o" "../src/cr_startup_lpc175x_6x.c"
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Drivers/inc" -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/Ejemplo_M2M_DMA.d" -MT"src/Ejemplo_M2M_DMA.o" -MT"src/Ejemplo_M2M_DMA.d" -o "src/Ejemplo_M2M_DMA.o" "../src/Ejemplo_M2M_DMA.c"
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Drivers/inc" -I"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../src/"= -mcpu=cortex-m3 -mthumb -fstack-usage -specs=redlib.specs -MMD -MP -MF"src/crp.d" -MT"src/crp.o" -MT"src/crp.d" -o "src/crp.o" "../src/crp.c"
+Finished building: ../src/cr_startup_lpc175x_6x.c
  
-Building target: EjTimerMatch4_D_Genero.axf
+Finished building: ../src/crp.c
+Finished building: ../src/Ejemplo_M2M_DMA.c
+ 
+ 
+Building target: Ejemplo_M2M_DMA.axf
 Invoking: MCU Linker
-arm-none-eabi-gcc -nostdlib -L"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug" -Xlinker -Map="EjTimerMatch4_D_Genero.map" -Xlinker --cref -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "EjTimerMatch4_D_Genero_Debug.ld" -o "EjTimerMatch4_D_Genero.axf"  ./src/EjTimerMatch4_D_Genero.o ./src/cr_startup_lpc175x_6x.o ./src/crp.o   -lCMSISv2p00_LPC17xx
+arm-none-eabi-gcc -nostdlib -L"/home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug" -Xlinker -Map="Ejemplo_M2M_DMA.map" -Xlinker --cref -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Ejemplo_M2M_DMA_Debug.ld" -o "Ejemplo_M2M_DMA.axf"  ./src/Ejemplo_M2M_DMA.o ./src/cr_startup_lpc175x_6x.o ./src/crp.o   -lCMSISv2p00_LPC17xx
 Memory region         Used Size  Region Size  %age Used
-       MFlash512:        2968 B       512 KB      0.57%
-        RamLoc32:           4 B        32 KB      0.01%
+       MFlash512:        2460 B       512 KB      0.47%
+        RamLoc32:         104 B        32 KB      0.32%
         RamAHB32:          0 GB        32 KB      0.00%
-Finished building target: EjTimerMatch4_D_Genero.axf
+Finished building target: Ejemplo_M2M_DMA.axf
  
 Performing post-build steps
-arm-none-eabi-size "EjTimerMatch4_D_Genero.axf"; # arm-none-eabi-objcopy -v -O binary "EjTimerMatch4_D_Genero.axf" "EjTimerMatch4_D_Genero.bin" ; # checksum -p LPC1769 -d "EjTimerMatch4_D_Genero.bin";
+arm-none-eabi-size "Ejemplo_M2M_DMA.axf"; # arm-none-eabi-objcopy -v -O binary "Ejemplo_M2M_DMA.axf" "Ejemplo_M2M_DMA.bin" ; # checksum -p LPC1769 -d "Ejemplo_M2M_DMA.bin";
    text	   data	    bss	    dec	    hex	filename
-   2964	      4	      0	   2968	    b98	EjTimerMatch4_D_Genero.axf
+   2428	     32	     72	   2532	    9e4	Ejemplo_M2M_DMA.axf
  

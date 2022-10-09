@@ -1,0 +1,4 @@
+../src/Ejemplo_DAC_DMA.c:13:5:main	88	static
+../src/Ejemplo_DAC_DMA.c:51:6:confPin	16	static
+../src/Ejemplo_DAC_DMA.c:65:6:confDMA	24	static
+../src/Ejemplo_DAC_DMA.c:102:6:confDac	16	static
