@@ -31,7 +31,7 @@ void confPin(void){
 	PINSEL_ConfigPin(&pinsel_cfg);
 	return;
 }
-void confDAC(void){
+void confDAC(void){	// Se podria configurar el bit BIAS para consumo mas eficiente
 	DAC_Init (LPC_DAC);
 }
 void delay(){

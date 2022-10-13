@@ -270,7 +270,7 @@ END GROUP
                 0x0000000020084000                __top_RamAHB32 = 0x20084000
                 0x0000000020084000                __top_RAM2 = 0x20084000
 
-.text           0x0000000000000000      0xa28
+.text           0x0000000000000000      0xa00
  FILL mask 0xff
                 0x0000000000000000                __vectors_start__ = ABSOLUTE (.)
  *(.isr_vector)
@@ -279,10 +279,10 @@ END GROUP
                 0x00000000000000cc                . = ALIGN (0x4)
                 0x00000000000000cc                __section_table_start = .
                 0x00000000000000cc                __data_section_table = .
-                0x00000000000000cc        0x4 LONG 0xa28 LOADADDR (.data)
+                0x00000000000000cc        0x4 LONG 0xa00 LOADADDR (.data)
                 0x00000000000000d0        0x4 LONG 0x10000000 ADDR (.data)
                 0x00000000000000d4        0x4 LONG 0x20 SIZEOF (.data)
-                0x00000000000000d8        0x4 LONG 0xa28 LOADADDR (.data_RAM2)
+                0x00000000000000d8        0x4 LONG 0xa00 LOADADDR (.data_RAM2)
                 0x00000000000000dc        0x4 LONG 0x2007c000 ADDR (.data_RAM2)
                 0x00000000000000e0        0x4 LONG 0x0 SIZEOF (.data_RAM2)
                 0x00000000000000e4                __data_section_table_end = .
@@ -353,94 +353,94 @@ END GROUP
                 0x0000000000000300                PROVIDE (__CRP_WORD_END__ = .)
                 0x0000000000000001                ASSERT (! ((__CRP_WORD_START__ == __CRP_WORD_END__)), Linker CRP Enabled, but no CRP_WORD provided within application)
  *(.text*)
- .text.main     0x0000000000000300      0x124 ./src/Ejemplo_DAC_DMA.o
+ .text.main     0x0000000000000300       0xfc ./src/Ejemplo_DAC_DMA.o
                 0x0000000000000300                main
- .text.confPin  0x0000000000000424       0x2a ./src/Ejemplo_DAC_DMA.o
-                0x0000000000000424                confPin
- *fill*         0x000000000000044e        0x2 ff
- .text.confDMA  0x0000000000000450       0x70 ./src/Ejemplo_DAC_DMA.o
-                0x0000000000000450                confDMA
- .text.confDac  0x00000000000004c0       0x38 ./src/Ejemplo_DAC_DMA.o
-                0x00000000000004c0                confDac
+ .text.confPin  0x00000000000003fc       0x2a ./src/Ejemplo_DAC_DMA.o
+                0x00000000000003fc                confPin
+ *fill*         0x0000000000000426        0x2 ff
+ .text.confDMA  0x0000000000000428       0x70 ./src/Ejemplo_DAC_DMA.o
+                0x0000000000000428                confDMA
+ .text.confDac  0x0000000000000498       0x38 ./src/Ejemplo_DAC_DMA.o
+                0x0000000000000498                confDac
  .text.SystemInit
-                0x00000000000004f8       0xd8 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
-                0x00000000000004f8                SystemInit
+                0x00000000000004d0       0xd8 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x00000000000004d0                SystemInit
  .text.DAC_Init
-                0x00000000000005d0       0x24 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
-                0x00000000000005d0                DAC_Init
+                0x00000000000005a8       0x24 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+                0x00000000000005a8                DAC_Init
  .text.DAC_ConfigDAConverterControl
-                0x00000000000005f4       0x4c /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
-                0x00000000000005f4                DAC_ConfigDAConverterControl
+                0x00000000000005cc       0x4c /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+                0x00000000000005cc                DAC_ConfigDAConverterControl
  .text.DAC_SetDMATimeOut
-                0x0000000000000640       0x24 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
-                0x0000000000000640                DAC_SetDMATimeOut
+                0x0000000000000618       0x24 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+                0x0000000000000618                DAC_SetDMATimeOut
  .text.GPDMA_Init
-                0x0000000000000664       0x38 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x0000000000000664                GPDMA_Init
+                0x000000000000063c       0x38 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x000000000000063c                GPDMA_Init
  .text.GPDMA_Setup
-                0x000000000000069c      0x1d8 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x000000000000069c                GPDMA_Setup
+                0x0000000000000674      0x1d8 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x0000000000000674                GPDMA_Setup
  .text.GPDMA_ChannelCmd
-                0x0000000000000874       0x1c /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x0000000000000874                GPDMA_ChannelCmd
+                0x000000000000084c       0x1c /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x000000000000084c                GPDMA_ChannelCmd
  .text.check_failed
-                0x0000000000000890        0x2 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
-                0x0000000000000890                check_failed
- *fill*         0x0000000000000892        0x2 ff
+                0x0000000000000868        0x2 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+                0x0000000000000868                check_failed
+ *fill*         0x000000000000086a        0x2 ff
  .text.PINSEL_ConfigPin
-                0x0000000000000894       0x7c /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
-                0x0000000000000894                PINSEL_ConfigPin
+                0x000000000000086c       0x7c /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
+                0x000000000000086c                PINSEL_ConfigPin
  .text.CLKPWR_ConfigPPWR
-                0x0000000000000910       0x34 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
-                0x0000000000000910                CLKPWR_ConfigPPWR
+                0x00000000000008e8       0x34 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                0x00000000000008e8                CLKPWR_ConfigPPWR
  .text.__weak_main
-                0x0000000000000944        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(__weak__main.o)
-                0x0000000000000944                __main
-                0x0000000000000944                __weak_main
+                0x000000000000091c        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(__weak__main.o)
+                0x000000000000091c                __main
+                0x000000000000091c                __weak_main
  *(.rodata .rodata.* .constdata .constdata.*)
- .rodata        0x0000000000000948       0x40 ./src/Ejemplo_DAC_DMA.o
+ .rodata        0x0000000000000920       0x40 ./src/Ejemplo_DAC_DMA.o
  .rodata.DAC_Init.str1.1
-                0x0000000000000988        0xe /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
- *fill*         0x0000000000000996        0x2 ff
+                0x0000000000000960        0xe /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+ *fill*         0x000000000000096e        0x2 ff
  .rodata.GPDMA_LUTPerAddr
-                0x0000000000000998       0x60 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x0000000000000998                GPDMA_LUTPerAddr
+                0x0000000000000970       0x60 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x0000000000000970                GPDMA_LUTPerAddr
  .rodata.GPDMA_LUTPerBurst
-                0x00000000000009f8       0x18 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x00000000000009f8                GPDMA_LUTPerBurst
+                0x00000000000009d0       0x18 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x00000000000009d0                GPDMA_LUTPerBurst
  .rodata.GPDMA_LUTPerWid
-                0x0000000000000a10       0x18 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x0000000000000a10                GPDMA_LUTPerWid
-                0x0000000000000a28                . = ALIGN (0x4)
+                0x00000000000009e8       0x18 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x00000000000009e8                GPDMA_LUTPerWid
+                0x0000000000000a00                . = ALIGN (0x4)
 
-.glue_7         0x0000000000000a28        0x0
- .glue_7        0x0000000000000a28        0x0 linker stubs
+.glue_7         0x0000000000000a00        0x0
+ .glue_7        0x0000000000000a00        0x0 linker stubs
 
-.glue_7t        0x0000000000000a28        0x0
- .glue_7t       0x0000000000000a28        0x0 linker stubs
+.glue_7t        0x0000000000000a00        0x0
+ .glue_7t       0x0000000000000a00        0x0 linker stubs
 
-.vfp11_veneer   0x0000000000000a28        0x0
- .vfp11_veneer  0x0000000000000a28        0x0 linker stubs
+.vfp11_veneer   0x0000000000000a00        0x0
+ .vfp11_veneer  0x0000000000000a00        0x0 linker stubs
 
-.v4_bx          0x0000000000000a28        0x0
- .v4_bx         0x0000000000000a28        0x0 linker stubs
+.v4_bx          0x0000000000000a00        0x0
+ .v4_bx         0x0000000000000a00        0x0 linker stubs
 
-.iplt           0x0000000000000a28        0x0
- .iplt          0x0000000000000a28        0x0 ./src/Ejemplo_DAC_DMA.o
+.iplt           0x0000000000000a00        0x0
+ .iplt          0x0000000000000a00        0x0 ./src/Ejemplo_DAC_DMA.o
 
-.rel.dyn        0x0000000000000a28        0x0
- .rel.iplt      0x0000000000000a28        0x0 ./src/Ejemplo_DAC_DMA.o
+.rel.dyn        0x0000000000000a00        0x0
+ .rel.iplt      0x0000000000000a00        0x0 ./src/Ejemplo_DAC_DMA.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM.exidx      0x0000000000000a28        0x0
-                0x0000000000000a28                __exidx_start = .
+.ARM.exidx      0x0000000000000a00        0x0
+                0x0000000000000a00                __exidx_start = .
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000000000000a28                __exidx_end = .
-                0x0000000000000a28                _etext = .
+                0x0000000000000a00                __exidx_end = .
+                0x0000000000000a00                _etext = .
 
-.data_RAM2      0x000000002007c000        0x0 load address 0x0000000000000a28
+.data_RAM2      0x000000002007c000        0x0 load address 0x0000000000000a00
  FILL mask 0xff
                 [!provide]                        PROVIDE (__start_data_RAM2 = .)
                 [!provide]                        PROVIDE (__start_data_RamAHB32 = .)
@@ -461,7 +461,7 @@ END GROUP
                 0x0000000010000000                . = ALIGN (0x4)
                 0x0000000010000000                _end_uninit_RESERVED = .
 
-.data           0x0000000010000000       0x20 load address 0x0000000000000a28
+.data           0x0000000010000000       0x20 load address 0x0000000000000a00
  FILL mask 0xff
                 0x0000000010000000                _data = .
                 [!provide]                        PROVIDE (__start_data_RAM = .)
@@ -480,7 +480,7 @@ END GROUP
                 [!provide]                        PROVIDE (__end_data_RAM = .)
                 [!provide]                        PROVIDE (__end_data_RamLoc32 = .)
 
-.igot.plt       0x0000000010000020        0x0 load address 0x0000000000000a48
+.igot.plt       0x0000000010000020        0x0 load address 0x0000000000000a20
  .igot.plt      0x0000000010000020        0x0 ./src/Ejemplo_DAC_DMA.o
 
 .bss_RAM2       0x000000002007c000        0x0
@@ -535,8 +535,8 @@ END GROUP
                 0x0000000010008000                PROVIDE (_vStackTop = DEFINED (__user_stack_top)?__user_stack_top:(__top_RamLoc32 - 0x0))
                 0xffffffffefff74c6                PROVIDE (__valid_user_code_checksum = (0x0 - ((((((_vStackTop + (ResetISR + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
                 0x0000000000000000                _image_start = LOADADDR (.text)
-                0x0000000000000a48                _image_end = (LOADADDR (.data) + SIZEOF (.data))
-                0x0000000000000a48                _image_size = (_image_end - _image_start)
+                0x0000000000000a20                _image_end = (LOADADDR (.data) + SIZEOF (.data))
+                0x0000000000000a20                _image_size = (_image_end - _image_start)
 OUTPUT(Ejemplo_DAC_DMA.axf elf32-littlearm)
 LOAD linker stubs
 
@@ -625,16 +625,16 @@ LOAD linker stubs
  .debug_macro   0x00000000000038b0       0x8d /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
  .debug_macro   0x000000000000393d      0x2f1 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
 
-.debug_line     0x0000000000000000     0x1eea
- .debug_line    0x0000000000000000      0x400 ./src/Ejemplo_DAC_DMA.o
- .debug_line    0x0000000000000400      0x160 ./src/cr_startup_lpc175x_6x.o
- .debug_line    0x0000000000000560       0xb5 ./src/crp.o
- .debug_line    0x0000000000000615      0x43c /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
- .debug_line    0x0000000000000a51      0x415 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
- .debug_line    0x0000000000000e66      0x646 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
- .debug_line    0x00000000000014ac      0x234 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
- .debug_line    0x00000000000016e0      0x390 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
- .debug_line    0x0000000000001a70      0x47a /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+.debug_line     0x0000000000000000     0x1eca
+ .debug_line    0x0000000000000000      0x3e0 ./src/Ejemplo_DAC_DMA.o
+ .debug_line    0x00000000000003e0      0x160 ./src/cr_startup_lpc175x_6x.o
+ .debug_line    0x0000000000000540       0xb5 ./src/crp.o
+ .debug_line    0x00000000000005f5      0x43c /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_line    0x0000000000000a31      0x415 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+ .debug_line    0x0000000000000e46      0x646 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+ .debug_line    0x000000000000148c      0x234 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .debug_line    0x00000000000016c0      0x390 /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
+ .debug_line    0x0000000000001a50      0x47a /home/bruno/Documents/Facultad/Electrónica Digital III/ED3_Drivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
 
 .debug_str      0x0000000000000000     0xc556
  .debug_str     0x0000000000000000     0xa0ed ./src/Ejemplo_DAC_DMA.o

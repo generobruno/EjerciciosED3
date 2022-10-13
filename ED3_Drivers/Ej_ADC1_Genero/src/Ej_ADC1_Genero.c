@@ -17,6 +17,7 @@ void ADC_IRQHandler(void);
 void configPin(void);
 void configADC(void);
 
+
 int main(void) {
 	uint32_t tmp;
 
