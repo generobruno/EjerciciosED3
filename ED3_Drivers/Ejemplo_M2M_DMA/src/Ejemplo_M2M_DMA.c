@@ -1,6 +1,7 @@
 #include "LPC17xx.h"
 #include "lpc17xx_gpdma.h"
 #define DMA_SIZE 16
+
 //DMAScr_Buffer will be burn into flash when compile
 const uint32_t DMASrc_Buffer[DMA_SIZE]=
 {
@@ -9,14 +10,19 @@ const uint32_t DMASrc_Buffer[DMA_SIZE]=
 		0x21222324,0x25262728,0x292A2B2C,0x2D2E2F30,
 		0x31323334,0x35363738,0x393A3B3C,0x3D3E3F40
 };
+
 uint32_t DMADest_Buffer[DMA_SIZE];
+
 // Terminal Counter flag for Channel 0
 volatile uint32_t Channel0_TC;
+
 // Error Counter flag for Channel 0
 volatile uint32_t Channel0_Err;
+
 void DMA_IRQHandler (void);
 void Buffer_Verify(void);
 void confDMA(void);
+
 int main(void)
 {
 	confDMA();
@@ -36,6 +42,7 @@ int main(void)
 	while(1);
 	return 0;
 }
+
 void confDMA(void){
 	GPDMA_Channel_CFG_Type GPDMACfg;
 	/* GPDMA block section -------------------------------------------- */
@@ -65,6 +72,7 @@ void confDMA(void){
 	// Setup channel with given parameter
 	GPDMA_Setup(&GPDMACfg);
 }
+
 void Buffer_Verify(void)
 {
 	uint8_t i;
@@ -79,6 +87,7 @@ void Buffer_Verify(void)
 	}
 	return;
 }
+
 void DMA_IRQHandler (void)
 {
 	// check GPDMA interrupt on channel 0

@@ -16,4 +16,7 @@
 		<item key="DIALOG_HEIGHT" value="456"/>
 		<item key="DIALOG_FONT_NAME" value="1|Roboto|10.0|0|GTK|1|"/>
 	</section>
+	<section name="CResourceRenameRefactoringInputPage">
+		<item key="updateReferences" value="true"/>
+	</section>
 </section>
