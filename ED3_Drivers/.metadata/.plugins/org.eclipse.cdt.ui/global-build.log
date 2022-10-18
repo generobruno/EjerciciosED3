@@ -1,4 +1,4 @@
-10:08:50 **** Incremental Build of configuration Debug for project CMSISv2p00_LPC17xx ****
+10:15:53 **** Incremental Build of configuration Debug for project CMSISv2p00_LPC17xx ****
 make -r -j4 all 
 make[1]: Nothing to be done for 'main-build'.
 Performing post-build steps
@@ -32,7 +32,7 @@ arm-none-eabi-size libCMSISv2p00_LPC17xx.a ; # arm-none-eabi-objdump -h -S libCM
    2912	      0	      0	   2912	    b60	lpc17xx_uart.o (ex libCMSISv2p00_LPC17xx.a)
     314	      0	      0	    314	    13a	lpc17xx_wdt.o (ex libCMSISv2p00_LPC17xx.a)
  
-10:08:51 **** Incremental Build of configuration Debug for project EjTimerMatch5_D_Genero ****
+10:15:53 **** Incremental Build of configuration Debug for project EjTimerMatch5_D_Genero ****
 make -r -j4 all 
 Building file: ../src/EjTimerMatch5_D_Genero.c
 Invoking: MCU C Compiler

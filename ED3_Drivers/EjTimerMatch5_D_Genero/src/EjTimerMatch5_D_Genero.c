@@ -119,9 +119,6 @@ void confInt(void) {
 }
 
 void EINT3_IRQHanlder(void) {
-	// Desactivamos el timer para reconfigurar
-	TIM_Cmd(LPC_TIM0,DISABLE);
-
 	// Cambiamos el modo
 	if(!control){
 		// ParMayor
@@ -133,8 +130,6 @@ void EINT3_IRQHanlder(void) {
 
 	// Limpiamos banderas
 	EXTI_ClearEXTIFlag(EXTI_EINT3);
-	// Volvemos a habilitar el timer
-	TIM_Cmd(LPC_TIM0,ENABLE);
 
 	return;
 }
