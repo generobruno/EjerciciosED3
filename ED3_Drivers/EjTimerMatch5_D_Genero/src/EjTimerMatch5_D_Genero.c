@@ -53,6 +53,15 @@ void confPin(void) {
 	pin_config.Pinmode = PINSEL_PINMODE_PULLUP;
 	pin_config.OpenDrain = PINSEL_PINMODE_NORMAL;
 
+
+	PINSEL_ConfigPin(&pin_config);
+
+	pin_config.Portnum = PINSEL_PORT_0;
+	pin_config.Pinnum = PINSEL_PIN_0;
+	pin_config.Funcnum = PINSEL_FUNC_0;
+	pin_config.Pinmode = PINSEL_PINMODE_TRISTATE;
+	pin_config.OpenDrain = PINSEL_PINMODE_NORMAL;
+
 	PINSEL_ConfigPin(&pin_config);
 }
 
@@ -61,7 +70,7 @@ void confTimer(void) {
 
 	// Configuramos timer
 	timer_config.PrescaleOption = TIM_PRESCALE_TICKVAL;
-	timer_config.PrescaleValue = 0;
+	timer_config.PrescaleValue = 1;
 
 	// Configuramos los match
 	TIM_MATCHCFG_Type match_config;
@@ -70,27 +79,27 @@ void confTimer(void) {
 	match_config.MatchChannel = 0;
 	match_config.IntOnMatch = ENABLE;
 	match_config.ResetOnMatch = ENABLE;
-	match_config.StopOnMatch = ENABLE;
+	match_config.StopOnMatch = DISABLE;
 	match_config.ExtMatchOutputType = TIM_EXTMATCH_NOTHING;
-	match_config.MatchValue = 0x7A11F; // 5ms
+	match_config.MatchValue = 0x1E847; // 5ms
 
 	TIM_ConfigMatch(LPC_TIM0,&match_config);
 
 	// Configuramos match 1
 	match_config.MatchChannel = 1;
-	match_config.MatchValue = 0xF423F;
+	match_config.MatchValue = 0x3D090;
 
 	TIM_ConfigMatch(LPC_TIM0,&match_config);
 
 	// Configuramos match 2
 	match_config.MatchChannel = 2;
-	match_config.MatchValue = 0x16E35F;
+	match_config.MatchValue = 0x5B8D8;
 
 	TIM_ConfigMatch(LPC_TIM0,&match_config);
 
 	// Configuramos match 3
 	match_config.MatchChannel = 1;
-	match_config.MatchValue = 0x1E847F;
+	match_config.MatchValue = 0x7A120;
 
 	TIM_ConfigMatch(LPC_TIM0,&match_config);
 
@@ -140,7 +149,7 @@ void parMenor(void) {
 		GPIO_SetValue(PORT_ZERO,PIN_0);
 		// Limpiamos bandera
 		TIM_ClearIntPending(LPC_TIM0,TIM_MR0_INT);
-	} else {
+	} else if(!(TIM_GetIntStatus(LPC_TIM0,TIM_MR0_INT))){
 		GPIO_ClearValue(PORT_ZERO,PIN_0);
 	}
 
@@ -149,7 +158,7 @@ void parMenor(void) {
 		GPIO_SetValue(PORT_ZERO,PIN_1);
 		// Limpiamos bandera
 		TIM_ClearIntPending(LPC_TIM0,TIM_MR1_INT);
-	} else {
+	} else if(!(TIM_GetIntStatus(LPC_TIM0,TIM_MR1_INT))) {
 		GPIO_ClearValue(PORT_ZERO,PIN_1);
 	}
 
@@ -158,7 +167,7 @@ void parMenor(void) {
 		GPIO_SetValue(PORT_ZERO,PIN_2);
 		// Limpiamos bandera
 		TIM_ClearIntPending(LPC_TIM0,TIM_MR2_INT);
-	} else {
+	} else if(!(TIM_GetIntStatus(LPC_TIM0,TIM_MR2_INT))){
 		GPIO_ClearValue(PORT_ZERO,PIN_2);
 	}
 
@@ -171,7 +180,7 @@ void parMenor(void) {
 
 		// Limpiamos bandera
 		TIM_ClearIntPending(LPC_TIM0,TIM_MR3_INT);
-	} else {
+	} else if(!(TIM_GetIntStatus(LPC_TIM0,TIM_MR3_INT))){
 		GPIO_ClearValue(PORT_ZERO,PIN_3);
 	}
 
