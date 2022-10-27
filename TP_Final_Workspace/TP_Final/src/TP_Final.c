@@ -18,14 +18,17 @@
  *  Macros utiles
  */
 
+// MACROS PARA LOS PINES
 #define OUTPUT 			1
 #define INPUT 			0
 #define FALLING			1
 #define RISING			0
 #define UPPER			1
 #define LOWER			0
+#define PORT_ZERO		0
 #define PORT_ONE		1
 #define PORT_TWO 		2
+// MACROS PARA EL TECLADO
 #define KEY_COL 		4
 #define KEY_ROW 		4
 #define KEYBOARD_SIZE 	(KEY_COL * KEY_ROW)
@@ -34,6 +37,8 @@
 #define LETTER_B		11
 #define LETTER_C		12
 #define LETTER_D		13
+// MACROS PARA ADMINISTRACION
+#define EMPLOYEES_NUM	10
 
 /*
  *  Definicion de funciones
@@ -48,17 +53,34 @@ void configDMA(void);
 // Funciones para el teclado
 void bounceDelay(void);
 uint8_t getKey(void);
-void configPassword(void);
-void registerEmployee(void);
-void checkArea(void);
-void enterEmployee(void);
-void getLog(void);
 // Funciones para el motor paso a paso
 void motorOpen(void);
 void motorClose(void);
 void clearMotorPins(void);
 // Funciones para el ADC
 void checkBat(void);
+// Funciones Administrativas
+void configPassword(uint8_t *code);
+void registerEmployee(uint8_t *code);
+char checkArea(uint8_t ref);
+void enterEmployee(uint8_t *code);
+void getLog(uint8_t *code);
+uint8_t checkPassword(uint8_t *code);
+
+/*
+ * 	Estructura que representa a un empleado.
+ * 	Sus campos:
+ * 		1. codigo: Codigo de identificacion del empleado.
+ * 		2. area: Area donde trabaja el empleado.
+ * 		3. presentismo: Campo que representa el presentismo. Cuenta los dias de ausente.
+ * 		4. ausente: Campo que representa si el empleado estuvo ausente en caso de ser TRUE.
+ */
+typedef struct Employee {
+	uint8_t codigo[4];
+	char area;			// CAMBIAR TIPO?
+	uint8_t presentismo;
+	uint8_t ausente;
+} Employee;
 
 /*
  *  Variables Globales
@@ -79,24 +101,12 @@ uint8_t keysDec[KEYBOARD_SIZE] =				// Array con las teclas en decimal
 	7, 8, 9, 12,	//	7	8	9	C
 	0, 0, 0, 13		//	0	0	0	D
 };
-uint8_t admin_password[CODE_SIZE-1];		// Contraseña de administrador
-uint8_t code_buffer[CODE_SIZE-1];			// Buffer para el codigo ingresado
-
-
-/*
- * 	Estructura que representa a un empleado.
- * 	Sus campos:
- * 		1. codigo: Codigo de identificacion del empleado.
- * 		2. area: Area donde trabaja el empleado.
- * 		3. presentismo: Campo que representa el presentismo. Cuenta los dias de ausente.
- * 		4. ausente: Campo que representa si el empleado estuvo ausente en caso de ser TRUE.
- */
-typedef struct Employee {
-	uint8_t codigo[4];
-	char *area;
-	uint8_t presentismo;
-	uint8_t ausente;
-} Employee;
+uint8_t admin_password[CODE_SIZE] = {NULL};		// Contraseña de administrador
+uint8_t code_buffer[CODE_SIZE];			// Buffer para el codigo ingresado
+uint8_t code_buffer_cfg[(CODE_SIZE*2)-1];	// Buffer para codigo y contraseña
+uint8_t unlock = 1;							// Variable para configuraciones de admin
+Employee employees[EMPLOYEES_NUM];			// Array con informacion de empleados
+uint8_t emp_index = 0;						// Numero de empleados registrados
 
 /*
  * 	Funcion Principal.
@@ -124,10 +134,10 @@ void configPin(void) {
 	PINSEL_CFG_Type pin_config;
 
 	/*
-	 * 	PUERTO 1 :
+	 * 	PUERTO 0 :
 	 * 	Salidas para Display 7-segmentos
 	 */
-	pin_config.Portnum = PINSEL_PORT_1;
+	pin_config.Portnum = PINSEL_PORT_0;
 	pin_config.Funcnum = PINSEL_FUNC_0;
 	pin_config.OpenDrain = PINSEL_PINMODE_NORMAL;
 	pin_config.Pinmode = PINSEL_PINMODE_TRISTATE;
@@ -135,7 +145,7 @@ void configPin(void) {
 		pin_config.Pinnum = i;
 		PINSEL_ConfigPin(&pin_config);
 	}
-	GPIO_SetDir(PORT_ONE,0xFF,OUTPUT);
+	GPIO_SetDir(PORT_ZERO,0xFF,OUTPUT);
 
 	/*
 	 * 	PUERTO 2 :
@@ -209,9 +219,9 @@ void EINT3_IRQHandler(void) {
 	// Hacemos un delay anti-rebote
 	bounceDelay();
 
-	/*
-	 *		Analisis del teclado
-	 */
+	/*/////////////////////////////////////////////////////////////////////////////////////////////
+	 *								Analisis del teclado
+	 *////////////////////////////////////////////////////////////////////////////////////////////
 
 	// Chequeamos que el valor de la tecla sea el mismo despues del delay
 	if(((GPIO_ReadValue(PORT_TWO) & 0xF0) - key_aux) == 0) {
@@ -221,6 +231,8 @@ void EINT3_IRQHandler(void) {
 		uint8_t keyHex = keysHex[key];
 		// Valor decimal para realizar operaciones
 		uint8_t keyDec = keysDec[key];
+
+		LPC_GPIO0->FIOPIN0 = keyHex;
 
 		// Si la tecla presionada es una letra:
 		if(keyDec > 9){
@@ -236,38 +248,94 @@ void EINT3_IRQHandler(void) {
 		}
 
 		// La mostramos en el display
-		FIO_HalfWordClearValue(PORT_ONE,LOWER,0xFF);
-		FIO_HalfWordClearValue(PORT_ONE,LOWER,keyHex);
+		//FIO_HalfWordClearValue(PORT_ZERO,LOWER,0xFF);
+		//FIO_HalfWordClearValue(PORT_ZERO,LOWER,keyHex);
 	}
 
-	/*
-	 * 		Analisis del codigo
-	 */
+	/*////////////////////////////////////////////////////////////////////////////////////////////
+	 * 								Analisis del codigo
+	 *////////////////////////////////////////////////////////////////////////////////////////////
 
 	// Cuando tengamos el codigo completo
 	if((dig_aux == CODE_SIZE)){
-		// Si no se presiono tecla de configuracion, hay un empleado ingresando
-		if(conf_key == 0){
-			enterEmployee();
-		} else if(conf_key == LETTER_A) {
-			configPassword();
-		} else if(conf_key == LETTER_B) {
-			registerEmployee();
-		} else if(conf_key == LETTER_C) {
-			getLog();
-		} else {
-			// Mensaje de error
-		}
-		// Reiniciamos auxiliares
-		dig_aux = 0;
-		conf_key = 0;
-	}
 
+		// Si se quiere configurar algo y el dispositivo esta bloqueado
+		if((!unlock) && (conf_key != 0)) {
+			// Chequeamos la contraseña
+			if(!checkPassword(code_buffer)) {
+				// TODO MENSAJE DE ERROR
+			}
+			// Reiniciamos auxiliar
+			dig_aux = 0;
+			// Limpiamos banderas
+			FIO_ClearInt(PORT_TWO, (0xF << 4));
+			// Volvemos a habilitar las interrupciones
+			NVIC_EnableIRQ(EINT3_IRQn);
+			// Salimos de la funcion
+			return;
+		}
+
+		// Si no se presiono tecla de configuracion, hay un empleado ingresando
+		if(conf_key == 0) {
+
+			/*
+			 * 		EMPLEADO INGRESANDO
+			 */
+			enterEmployee(code_buffer);
+
+		} else if(conf_key == LETTER_A) {
+
+			/*
+			 * 		CONFIGURACION DE CONTRASEÑA
+			 */
+			if(unlock) {
+				configPassword(code_buffer);
+				conf_key = 0;
+				unlock = 0;
+			} else {
+				// TODO MENSAJE DE ERROR
+			}
+
+		} else if(conf_key == LETTER_B) {
+
+			/*
+			 * 		REGISTRO DE EMPLEADO
+			 */
+			if(unlock) {
+				registerEmployee(code_buffer);
+				conf_key = 0;
+				unlock = 0;
+			} else {
+				// TODO MENSAJE DE ERROR
+			}
+
+		} else if(conf_key == LETTER_C) {
+
+			/*
+			 * 		OBTENER REGISTROS
+			 */
+			if(unlock) {
+				getLog(code_buffer);
+				conf_key = 0;
+				unlock = 0;
+			} else {
+				// TODO MENSAJE DE ERROR
+			}
+
+		} else {
+			// TODO MENSAJE DE ERROR
+		}
+
+		// Reiniciamos auxiliar
+		dig_aux = 0;
+	}
 
 	// Limpiamos banderas
 	FIO_ClearInt(PORT_TWO, (0xF << 4));
 	// Volvemos a habilitar las interrupciones
 	NVIC_EnableIRQ(EINT3_IRQn);
+	// Retornamos
+	return;
 }
 
 /*
@@ -345,13 +413,26 @@ void TIMER0_IRQHandler(void) {
 
 }
 
+void TIMER1_IRQHandler(void) {
+
+}
+
 void clearMotorPins(void) {
 
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+//										  SENSOR
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 //											ADC
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+void ADC_IRQHandler(void) {
+
+}
 
 void checkBat(void) {
 
@@ -364,22 +445,122 @@ void checkBat(void) {
 /*
  * 	Funcion que se encarga de configurar la contraseña de admin, si se presiono primeramente la
  * 	*tecla A*. La contraseña consta de 4 numeros y es guardada en la variable global admin_password.
- * 	Si admin_password es NULL, no se podra realizar ninguna configuracion.
  * 	Si se vuelve a presionar la *tecla A* luego de haber una contraseña configurada, se necesitara que
  * 	se ingrese la misma antes de reconfigurar la contraseña.
  */
-void configPassword(void) {
+void configPassword(uint8_t *code) {
+
+	for(uint8_t i = 0; i < CODE_SIZE; i++) {
+		admin_password[i] = code[i];
+	}
 
 }
 
-void registerEmployee(void) {
+/*
+ *	Funcion que se encarga de registrar el codigo de un empleado, si se presiono primeralmente la
+ *	*tecla B*. Luego de presionar esa tecla, el admin debe ingresar la contraseña para luego poder
+ *	ingresar el numero de identificacion del empleado. Este codigo consta de 4 numeros.
+ *	Cada empleado esta representado por la estructura "Employee". Al regsitrar un nuevo empleado
+ *	se crea una instancia de esta estructura con el campo codigo siendo el ingresado.
+ */
+void registerEmployee(uint8_t *code) {
+
+	// Cargamos la informacion del empleado
+	for(uint8_t i = 0; i < CODE_SIZE; i++) {
+		employees[emp_index].codigo[i] = code[i];
+	}
+	employees[emp_index].area = checkArea(code[0]);
+	employees[emp_index].presentismo = 0;
+	employees[emp_index].ausente = 0;
+
+	// Aumentamos el numero de empleados registrados
+	emp_index++;
+
+	return;
+}
+
+/*
+ * 	Funcion auxiliar de registerEmployee que analiza el primer numero del codigo para completar
+ * 	el campo "area" del empleado.
+ */
+char checkArea(uint8_t ref) {
+	switch(ref) {
+		case 1:
+			return 'a';
+		case 2:
+			return 'b';
+		case 3:
+			return 'c';
+		case 4:
+			return 'd';
+		case 5:
+			return 'e';
+		case 6:
+			return 'f';
+		case 7:
+			return 'g';
+		case 8:
+			return 'h';
+		case 9:
+			return 'i';
+		case 0:
+			return 'A';
+		default:
+			return 'X';
+	}
+}
+
+/*
+ * 	Funcion que compara el codigo ingresado con los que hay en la lista de empleados registrados.
+ * 	Si el codigo coincide, se abre la barrera (motorOpen) y se pone en 0 el campo "presentismo"
+ * 	del empleado.
+ */
+void enterEmployee(uint8_t *code) {
+	uint8_t entering = EMPLOYEES_NUM;
+
+	// Buscamos el empleado TODO REVISAR ESTO
+	for(uint8_t i = 0; i < EMPLOYEES_NUM; i++) {
+		for(uint8_t j = 0; j < CODE_SIZE; j++) {
+			if(employees[i].codigo[j] != code[j]) {
+				break;
+			}
+		}
+		entering = i;
+	}
+
+	// Modificamos la info del empleado
+	if(entering < EMPLOYEES_NUM) {
+		employees[entering].presentismo = 0;
+	} else { // Sino encontro al empleado o el codigo esta mal, muestra un mensaje de error
+		// TODO MENSAJE DE ERROR
+	}
 
 }
 
-void enterEmployee(void) {
+void getLog(uint8_t *code) {
 
 }
 
-void getLog(void) {
+/*
+ * 	Funcion que verifica que la contraseña ingresada sea correcta y
+ * 	desbloquea el dispositivo en caso de serlo
+ * 	En caso de serlo devuelve 1 y hace que la variable unlock sea 1.
+ * 	En caso contrario devuelve 0.
+ */
+uint8_t checkPassword(uint8_t *code) {
+	// Si no hay contraseña se devuelve 1
+	if(admin_password == NULL) {
+		unlock = 1;
+		return 1;
+	}
 
+	for(uint8_t i = 0; i < CODE_SIZE; i++) {
+		if(code[i] != admin_password[i]) {
+			unlock = 0;
+			return 0;
+		}
+	}
+
+	unlock = 1;
+	return 1;
 }
